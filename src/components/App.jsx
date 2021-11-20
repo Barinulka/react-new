@@ -1,15 +1,13 @@
-import './App.scss';
-import { Message } from './Message/Message';
+import "./App.scss";
 
-const message = 'test props';
+import { Header } from "./Header";
+import { Messages } from "./Messages";
 
-function App({name}) {
+function App() {
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>App component</h1>
-        <Message message={ message } />
-      </header>
+      <Header />
+      <Messages />
     </div>
   );
 }
