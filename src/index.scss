@@ -14,7 +14,8 @@ body {
   min-width: 540px !important;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -40,6 +41,10 @@ p {
   padding: 0;
 }
 
+#root {
+  height: 100vh;
+}
+
 @media only screen and (max-width: 1140px) {
   .centered {
     width: 992px;
@@ -57,4 +62,3 @@ p {
     width: 540px;
   }
 }
-
