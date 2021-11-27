@@ -22,17 +22,17 @@ export const Messages = () => {
       messages.length &&
       messages[messages.length - 1].author !== AUTHOR.robot
     ) {
-      const robotMessages = {
+      const robotMessage = {
         author: AUTHOR.robot,
         message: fakerStatic.lorem.sentence(),
         id: fakerStatic.datatype.uuid(),
       };
-      setTimeout(() => setMessages([...messages, robotMessages]), 1000);
+      setTimeout(() => setMessages([...messages, robotMessage]), 1000);
     }
-  }, [messages]);
+  }, [messages, messages.length]);
 
   return (
-    <div className="messages padding-site centered">
+    <div className="messages">
       <MessagesList messages={messages} />
 
       <MessagesForm onSend={handleSendMessage} />

@@ -1,14 +1,20 @@
 import { Button, TextField } from "@material-ui/core";
+import { Send } from "@mui/icons-material";
 import fakerStatic from "faker/locale/ru";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AUTHOR } from "../../constants";
 import "./style.scss";
 
 export const MessagesForm = ({ onSend }) => {
-  const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
+  const inputField = useRef(null);
+
+  useEffect(() => {
+    inputField.current.focus();
+  });
 
   const handleChangeInput = (e) => {
-    setText(e.target.value);
+    setMessage(e.target.value);
   };
 
   // По отправке формы создаем сообщение
@@ -16,17 +22,26 @@ export const MessagesForm = ({ onSend }) => {
     e.preventDefault();
     onSend({
       author: AUTHOR.me,
-      message: text,
+      message: message,
       id: fakerStatic.datatype.uuid(),
     });
-    setText("");
+    setMessage("");
   };
 
   return (
     <div className="form">
       <form onSubmit={handleSubmitForm}>
-        <TextField value={text} onChange={handleChangeInput} />
-        <Button type="submit">Отправить</Button>
+        <TextField
+          fullWidth
+          label="Сообщение"
+          variant="outlined"
+          value={message}
+          onChange={handleChangeInput}
+          inputRef={inputField}
+        />
+        <Button type="submit" variant="contained" endIcon={<Send />}>
+          Send
+        </Button>
       </form>
     </div>
   );

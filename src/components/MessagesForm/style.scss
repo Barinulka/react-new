@@ -1,24 +1,22 @@
 .form {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //   height: 10vh;
 }
 
 form {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    input[type="text"] {
-        width: 250px;
-    }
+  // input[type="text"] {
+  //     width: 250px;
+  // }
 
-    input[type="submit"] {
-        width: 5%;
-    }
+  button[type="submit"] {
+    margin-left: 15px;
+    width: 138px;
+  }
 }
